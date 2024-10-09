@@ -17,3 +17,5 @@ add_library(${PROJECT_NAME} SHARED
 #target_include_directories(Commons PUBLIC
 #    ${CMAKE_CURRENT_SOURCE_DIR} 
 #)
+
+cmake_print_variables("")

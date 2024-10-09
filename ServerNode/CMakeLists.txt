@@ -27,3 +27,5 @@ target_link_libraries(${PROJECT_NAME} PUBLIC Crow::Crow)
 
 target_link_libraries(${PROJECT_NAME} PUBLIC Commons)
 
+cmake_print_variables("")
+

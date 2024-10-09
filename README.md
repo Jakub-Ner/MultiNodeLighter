@@ -14,7 +14,8 @@
 ```bash
 mkdir -p build
 cd build
-cmake ..
+
+cmake .. # or PROJECT=<Project name> cmake .. if you want to build a specific project 
 cmake --build . # replace . with path to build directory
 ```
 

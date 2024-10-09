@@ -1,0 +1,16 @@
+
+cmake_minimum_required(VERSION 3.15)
+
+function(assert actual expected message)
+    cmake_print_variables(condition)
+    if(NOT actual EQUAL expected)
+        message(FATAL_ERROR ${message})
+    endif()
+    message(FATAL_ERROR "proly passed")
+endfunction()
+
+function (assert_not actual expected message)
+    if(actual EQUAL expected)
+        message(FATAL_ERROR ${message})
+    endif()
+endfunction()
