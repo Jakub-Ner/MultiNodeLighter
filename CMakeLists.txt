@@ -1,7 +1,8 @@
 cmake_minimum_required(VERSION 3.15)
 
 set(PROJECT_NAME "Main")
-set(PROJECTS "Commons" "ServerNode")
+set(SHARED_LIBS "Commons")
+set(PROJECTS "ServerNode")
 
 project(${PROJECT_NAME})
 
@@ -11,8 +12,12 @@ include(${CMAKE_CURRENT_LIST_DIR}/CMakeHelpers.txt)
 cmake_print_variables(PROJECT_NAME)
 cmake_print_variables(${EXECUTABLE_OUTPUT_PATH})
 
-if (DEFINED ENV{PROJECT})
-    list(FIND PROJECTS $ENV{PROJECT} INDEX)
+foreach(PROJECT IN LISTS SHARED_LIBS)
+    add_subdirectory(${PROJECT})
+endforeach()
+
+if (DEFINED PROJECT)
+    list(FIND PROJECTS ${PROJECT} INDEX)
     assert_not(${INDEX} -1 "Invalid PROJECT, should be one of ${PROJECTS}")
 
     list(GET PROJECTS ${INDEX} SELECTED_PROJECT)
